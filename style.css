@@ -1,0 +1,310 @@
+/* 1. PADRÃO & BASE */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: #fbf3f2; /* Creme suave rosado */
+  color: #3d2b2a; /* Castanho chocolate escuro */
+  font-family: 'Nunito', 'Quicksand', Arial, sans-serif;
+  line-height: 1.6;
+}
+
+.container {
+  width: min(100% - 40px, 1080px);
+  margin: 0 auto;
+}
+
+/* 2. TOPO / CABEÇALHO (Chocolate com detalhes Rosa) */
+.topo {
+  padding: 40px 0;
+  background: linear-gradient(135deg, #4a2c2a 0%, #633a37 100%);
+  color: #fce8eb;
+  border-bottom: 5px solid #e5989b;
+  box-shadow: 0 4px 15px rgba(74, 44, 42, 0.25);
+}
+
+h1 {
+  margin: 6px 0;
+  font-size: 2.5rem;
+  color: #ffcad4; /* Rosa pastel suave */
+  text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+h2 {
+  margin: 4px 0 16px;
+  color: #5a2e2b; /* Chocolate profundo */
+  font-size: 1.5rem;
+}
+
+p {
+  margin: 8px 0 20px;
+}
+
+.etiqueta {
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #b56576; /* Rosa queimado elegante */
+}
+
+/* 3. PAINÉIS */
+main.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  padding-top: 32px;
+  padding-bottom: 32px;
+  align-items: start;
+}
+
+.painel {
+  background: #ffffff;
+  padding: 28px;
+  border: 2px solid #edc2c5;
+  border-radius: 18px;
+  box-shadow: 0 6px 18px rgba(107, 62, 59, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.painel:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(107, 62, 59, 0.12);
+}
+
+.painel-largura-total {
+  grid-column: 1 / -1;
+}
+
+.cabecalho-lista {
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+  align-items: start;
+  flex-wrap: wrap;
+}
+
+/* 4. FORMULÁRIOS & CAMPOS DE ENTRADA */
+label {
+  display: block;
+  margin: 16px 0 6px;
+  font-weight: 700;
+  color: #4a2c2a;
+}
+
+input,
+select,
+button {
+  font: inherit;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 12px 14px;
+  border: 2px solid #e5b3b6;
+  border-radius: 12px;
+  background: #fffcfc;
+  color: #3d2b2a;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus,
+select:focus {
+  border-color: #b56576;
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(181, 101, 118, 0.2);
+}
+
+.campos-numericos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.grid-carrinho-form {
+  display: grid;
+  grid-template-columns: 2fr 2fr 1fr;
+  gap: 16px;
+}
+
+/* 5. BOTÕES */
+button {
+  border: 0;
+  border-radius: 20px;
+  padding: 12px 22px;
+  background: linear-gradient(135deg, #6b3e3b 0%, #4a2c2a 100%);
+  color: #ffcad4;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(74, 44, 42, 0.3);
+  transition: all 0.2s ease;
+}
+
+form button {
+  width: 100%;
+  margin-top: 24px;
+}
+
+button:hover {
+  background: linear-gradient(135deg, #b56576 0%, #8d4855 100%);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(181, 101, 118, 0.4);
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+  transform: none;
+}
+
+.secundario {
+  background: #f7d6d8;
+  color: #5a2e2b;
+  box-shadow: none;
+  font-size: 0.85rem;
+}
+
+.secundario:hover {
+  background: #e5b3b6;
+  color: #3d2b2a;
+}
+
+.btn-remover {
+  background: #b56576;
+  color: #ffffff;
+  padding: 6px 14px;
+  font-size: 0.8rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(181, 101, 118, 0.3);
+}
+
+.btn-remover:hover {
+  background: #8d4855;
+}
+
+:focus-visible {
+  outline: 3px solid #b56576;
+  outline-offset: 3px;
+}
+
+/* 6. MENSAGENS DE STATUS */
+.mensagem {
+  margin: 20px 0 0;
+  min-height: 24px;
+  overflow-wrap: anywhere;
+  font-weight: 600;
+}
+
+.sucesso {
+  color: #2b5e3b;
+  background-color: #eaf5ed;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border-left: 4px solid #4a9e62;
+}
+
+.erro {
+  color: #7a2828;
+  background-color: #fdeaea;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border-left: 4px solid #b56576;
+}
+
+#mensagem-lista {
+  font-size: 0.9rem;
+}
+
+/* 7. TABELAS & RESUMO DO CARRINHO */
+.tabela-rolagem {
+  overflow-x: auto;
+  border-radius: 12px;
+}
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 0.9rem;
+}
+
+caption {
+  text-align: left;
+  margin-bottom: 12px;
+  color: #6b3e3b;
+  font-weight: 600;
+}
+
+th,
+td {
+  padding: 14px 12px;
+  border-bottom: 1px solid #f2d6d8;
+  text-align: left;
+  overflow-wrap: anywhere;
+}
+
+th {
+  background: #f9e8e9;
+  color: #5a2e2b;
+  font-weight: 700;
+}
+
+th:first-child {
+  border-top-left-radius: 10px;
+}
+
+th:last-child {
+  border-top-right-radius: 10px;
+}
+
+tbody tr:hover {
+  background-color: #fdf5f5;
+}
+
+.rodape-carrinho {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 12px;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 2px dashed #e5b3b6;
+  font-size: 1.2rem;
+  color: #4a2c2a;
+}
+
+.rodape-carrinho strong {
+  color: #b56576;
+  font-size: 1.5rem;
+}
+
+footer {
+  padding: 28px 0;
+  font-size: 0.85rem;
+  color: #7a5856;
+  text-align: center;
+}
+
+/* 8. RESPONSIVIDADE */
+@media (max-width: 850px) {
+  main.container {
+    grid-template-columns: 1fr;
+  }
+  .grid-carrinho-form {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 440px) {
+  .painel {
+    padding: 20px;
+  }
+  .campos-numericos {
+    grid-template-columns: 1fr;
+  }
+}
